@@ -19,6 +19,10 @@ class Router implements IRouter {
     this._express.get("/exams", (req, res) => {
       this._exam_controller.GetExams(req, res)
     })
+
+    this._express.post("/exams/add", (req, res) => {
+      this._exam_controller.AddExam(req, res)
+    })
   }
 }
 
