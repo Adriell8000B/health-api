@@ -2,9 +2,10 @@
   "name": "health-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx tsx main.ts",
+    "build": "npm install && npx tsc --build ."
   },
   "keywords": [],
   "author": "",
