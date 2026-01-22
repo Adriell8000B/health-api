@@ -9,4 +9,12 @@ export interface IExamRepository {
 } & {
     id: string;
 })[] | null>
+
+  CreateExam(exam_type: string, exam_location: string, exam_date: string): Promise<(Document<unknown, {}, IExam, {}, DefaultSchemaOptions> & IExam & Required<{
+    _id: Types.ObjectId;
+}> & {
+    __v: number;
+} & {
+    id: string;
+}) | null>
 }
