@@ -15,7 +15,7 @@ const exam_repository = new ExamRepository(ExamModel)
 const exam_controller = new ExamController(exam_repository)
 const middlewares_manager = new MiddlewaresManager(Express, [
   express.json(),
-  express.urlencoded()
+  express.urlencoded({extended: true})
 ])
 const database_service = new DatabaseService(Mongoose)
 const router = new Router(Express, exam_controller)
