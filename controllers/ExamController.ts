@@ -16,6 +16,14 @@ class ExamController implements IExamController {
   public async GetExams(_req: Request, res: Response): Promise<Response> {
     return res.send(await this._exam_repository.RetrieveExams())
   }
+
+  public async AddExam(req: Request, _res: Response) {
+    return this._exam_repository.CreateExam(
+      req.body["exam_type"],
+      req.body["exam_location"],
+      req.body["exam_date"]
+    )
+  }
 }
 
 export default ExamController
