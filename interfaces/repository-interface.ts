@@ -1,0 +1,12 @@
+import { DefaultSchemaOptions, Document, Types } from "mongoose";
+import { IExam } from "../models/ExamModel";
+
+export interface IExamRepository {
+  RetrieveExams(): Promise<(Document<unknown, {}, IExam, {}, DefaultSchemaOptions> & IExam & Required<{
+    _id: Types.ObjectId;
+}> & {
+    __v: number;
+} & {
+    id: string;
+})[] | null>
+}
