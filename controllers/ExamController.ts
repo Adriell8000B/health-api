@@ -17,12 +17,14 @@ class ExamController implements IExamController {
     return res.send(await this._exam_repository.RetrieveExams())
   }
 
-  public async AddExam(req: Request, _res: Response) {
-    return this._exam_repository.CreateExam(
+  public async AddExam(req: Request, res: Response) {
+    const data  = await this._exam_repository.CreateExam(
       req.body["exam_type"],
       req.body["exam_location"],
       req.body["exam_date"]
     )
+
+    return res.status(201).json(data)
   }
 }
 
