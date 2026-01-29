@@ -13,9 +13,8 @@ class ExamController implements IExamController {
     return res.send("Hi mom!")
   }
 
-  public async GetExams(req: Request, res: Response): Promise<Response> {
-    const email = await req.body["user_email"]
-    return res.send(await this._exam_repository.RetrieveExams(email))
+  public async GetExams(_req: Request, res: Response): Promise<Response> {
+    return res.send(await this._exam_repository.RetrieveExams())
   }
 
   public async AddExam(req: Request, res: Response) {

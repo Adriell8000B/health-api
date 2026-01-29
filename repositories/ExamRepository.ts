@@ -10,8 +10,8 @@ class ExamRepository implements IExamRepository {
     this._exam_model = exam_model
   }
 
-  public async RetrieveExams(email: string) {
-    const [response, error] = await HandlePromise(this._exam_model.find({user_email: email}))
+  public async RetrieveExams() {
+    const [response, error] = await HandlePromise(this._exam_model.find())
     if (error) {
       console.log(error)
     }
