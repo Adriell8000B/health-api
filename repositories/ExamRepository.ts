@@ -10,16 +10,18 @@ class ExamRepository implements IExamRepository {
     this._exam_model = exam_model
   }
 
-  public async RetrieveExams() {
-    const [response, error] = await HandlePromise(this._exam_model.find())
+  public async RetrieveExams(exam_email:string) {
+    const [response, error] = await HandlePromise(this._exam_model.find({exam_email: exam_email}))
     if (error) {
       console.log(error)
     }
+
     return response
   }
 
-  public async CreateExam(exam_type: string, exam_location: string, exam_date: string) {
+  public async CreateExam(exam_email:string, exam_type: string, exam_location: string, exam_date: string) {
     const [response, error] = await HandlePromise(this._exam_model.create({
+      exam_email: exam_email,
       exam_type: exam_type,
       exam_location: exam_location,
       exam_date: exam_date
